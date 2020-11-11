@@ -4,7 +4,6 @@
       <el-header>
         <el-menu
           :default-active="activeIndex2"
-          class="el-menu-demo"
           mode="horizontal"
           background-color="#545c64"
           text-color="#fff"
@@ -42,23 +41,34 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex2: '1',
+      pageYOffset: 0
+    }
+  },
+  computed: {
+    isNavbarFixed() {
+      return this.pageYOffset >= 60 ? 'position: fixed; top: 0; width: 100%; z-index: 1000;' : ''
     }
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .el-header {
-    padding: 0;
-  }
+.el-header {
+  padding: 0;
+  background-color: rgba(84, 92, 100, .5);
+}
 
-  .el-main {
-    padding: 0;
-  }
+.el-menu-item {
+  background-color: rgba(84, 92, 100, .5);
+}
+
+.el-main {
+  padding: 0;
+}
 </style>
